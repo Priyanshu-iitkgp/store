@@ -1,0 +1,113 @@
+.shop__intro {
+  max-width: 780px;
+  padding-block: 12px 24px;
+}
+
+.shop__title {
+  font-size: clamp(1.875rem, 1.1rem + 3.2vw, 3.25rem);
+  font-weight: 800;
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.shop__lede {
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: var(--text-md);
+}
+
+/* Category filter: scrolls sideways on phones, wraps on wider screens. */
+.categories {
+  display: flex;
+  gap: 2px;
+  margin-inline: -16px;
+  padding-inline: 16px;
+  overflow-x: auto;
+  border-bottom: 1px solid var(--rule);
+  scrollbar-width: none;
+}
+
+.categories::-webkit-scrollbar {
+  display: none;
+}
+
+.category {
+  flex: none;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 10px 12px 12px;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* The active category gets a highlighter stroke that draws in when selected. */
+.category__name {
+  padding: 0 2px;
+  background: linear-gradient(var(--highlighter), var(--highlighter)) no-repeat 0 88% / 0% 46%;
+  transition: background-size 0.25s ease-out;
+}
+
+.category:hover {
+  color: var(--ink);
+}
+
+.category[aria-pressed='true'] {
+  color: var(--ink);
+}
+
+.category[aria-pressed='true'] .category__name {
+  background-size: 100% 46%;
+}
+
+.category__count {
+  color: var(--muted);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+.toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-block: 18px 22px;
+}
+
+.toolbar__count {
+  font-weight: 600;
+}
+
+.toolbar__controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 24px;
+}
+
+.toolbar__price {
+  min-width: 104px;
+  font-size: var(--text-sm);
+  font-variant-numeric: tabular-nums;
+}
+
+@media (min-width: 768px) {
+  .categories {
+    flex-wrap: wrap;
+    margin-inline: 0;
+    padding-inline: 0;
+  }
+}
+
+@media (min-width: 960px) {
+  .toolbar {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
